@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Practices</title>
+  </head>
+  <style>
+    .box {
+      width: 12rem;
+      height: 12rem;
+      border: 2px solid black;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  </style>
+  <body>
+    <div class="box" id="bx">
+      <input type="text" placeholder="Enter Your Text" id="input_sect" />
+      <span id="spn">Your Text will go here</span>
+      <button id="attr_change">change Attr</button>
+      <button id="toggler">Toggle</button>
+    </div>
+    <script>
+      const spanTag = document.getElementById("spn");
+      const inpt = document.getElementById("input_sect");
+      const btn = document.getElementById("attr_change");
+      const box = document.getElementById("bx");
+      const toggler = document.getElementById("toggler");
+      let flag = true;
+      inpt.addEventListener("change", (e) => {
+        spanTag.innerText = e.target.value;
+      });
+      btn.addEventListener("click", () => {
+        box.setAttribute("style", "border:2px solid red");
+      });
+      toggler.addEventListener("click", () => {
+        if (flag) {
+          spanTag.style.display = "block";
+          flag = false;
+        } else {
+          spanTag.style.display = "none";
+          flag = true;
+        }
+      });
+    </script>
+  </body>
+</html>
